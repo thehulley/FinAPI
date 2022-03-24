@@ -74,6 +74,19 @@ app.get('/statement', verifyAccountExists, (req, res) => {
 app.post('/deposit', verifyAccountExists, (req, res) => {
     const { customer } = req;
     const { description, amount } = req.body;
+
+    if (!description) {
+        return res.status(400).json({
+            error: 'Description is required!'
+        });
+    }
+
+    if (!amount) {
+        return res.status(400).json({
+            error: 'Amount is required!'
+        });
+    }
+
     const statementOperation = {
         description,
         amount,
@@ -90,6 +103,13 @@ app.post('/deposit', verifyAccountExists, (req, res) => {
 app.post('/withdraw', verifyAccountExists, (req, res) => {
     const { customer } = req;
     const { amount } = req.body;
+
+    if (!amount) {
+        return res.status(400).json({
+            error: 'Amount is required!'
+        });
+    }
+
     const statementOperation = {
         amount,
         created_at: new Date(),
@@ -102,7 +122,7 @@ app.post('/withdraw', verifyAccountExists, (req, res) => {
 });
 
 
-app.get('/statement/:date', verifyAccountExists, (req, res) => {
+app.get('/statement/date', verifyAccountExists, (req, res) => {
     const { customer } = req;
     const { date } = req.query;
 
