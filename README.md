@@ -36,7 +36,7 @@ Este projeto tem como principal objetivo a simulação de uma aplicação bancá
 | Nome | Funcionalidade|
 |------|---------------|
 |```GET``` /statement|Informa as movimentações realizadas pelo usuário.|
-|```GET``` /statement/:date|Informa as movimentações realizadas pelo usuário em uma determinada data.|
+|```GET``` /statement/date|Informa as movimentações realizadas pelo usuário em uma determinada data.|
 |```GET``` /account|Informa os dados do usuário.|
 |```GET``` /balance|Informa o saldo do usuário.|
 |```POST``` /account|Realiza a criação de um usuário.|
